@@ -14,7 +14,7 @@ module Blind
 
   included do
     class_attribute :render_views
-    self.render_views = false
+    self.render_views = true
 
     setup do
       if !render_views
@@ -35,6 +35,10 @@ module Blind
     # Allows view rendering in controller tests.
     def render_views!
       self.render_views = true
+    end
+
+    def skip_render_views!
+      self.render_views = false
     end
   end
 
